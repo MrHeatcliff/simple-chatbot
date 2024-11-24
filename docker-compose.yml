@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  chatbot:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "7860:7860"
+    volumes:
+      - ./data:/app/data
+    environment:
+      - MODEL_NAME=NlpHUST/gpt2-vietnamese
+      - DATASET=5CD-AI/Vietnamese-Ecommerce-Alpaca
+    restart: always
